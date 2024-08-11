@@ -5,7 +5,7 @@
   </picture>
 </p>
 
-# An Onchain app in 100 components (or less)
+# Boilerplate used: An Onchain app in 100 components (or less)
 
 An Onchain app in less than 100 components, and ready to be deployed to Vercel.
 
