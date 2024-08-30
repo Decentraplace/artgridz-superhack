@@ -10,7 +10,7 @@ import { parseEther } from "viem";
 import { FaSave } from "react-icons/fa";
 import {abi} from './abi';
 import { config } from "./config";
-
+import './Canvas.css'; // Import your CSS stylesheet
 import { type UseAccountReturnType } from 'wagmi'
 import { getAccount } from '@wagmi/core'
 
@@ -27,20 +27,29 @@ interface Transaction {
   args: (string | number)[];
 }
 
-
+interface EraserTransaction {
+  address: typeof myNFTAddress,
+  abi: typeof myNFTABI,
+  functionName: "erasePixel",
+args: (string | number)[];
+}
 
 
 export function Upp() {
   const account = useAccount();
+  const accounsAddress = getAccount(config);
+  const accountAddress = accounsAddress.address as `0x${string}`;
+  const { writeContract } = useWriteContract();
     const [id, setId] = useState<string | undefined>(undefined);
     const [transactions, setTransactions] = useState<Transaction[]>([]);
     const [selectedColor, setSelectedColor] = useState('#000000');
     const [hoveredPixel, setHoveredPixel] = useState<{ x: number, y: number } | null>(null);
     const [clickedPixels, setClickedPixels] = useState<{ x: number, y: number, color: string }[]>([]);
     const [clickedPixel, setClickedPixel] = useState<{ x: number, y: number } | null>(null);
-    
+    const [eraserPixels, setEraserClickedPixels] = useState<{ x: number, y: number }[]>([]);
+    const [erasertransactions, setEraserTransactions] = useState<EraserTransaction[]>([]);
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const pixelSize = 4; // Define pixel size
+    const pixelSize = 3.75; // Define pixel size
     const [showMessage, setShowMessage] = useState(false);
 
     const handleMove = () => {
@@ -66,7 +75,7 @@ export function Upp() {
       ) {
         return {
           paymasterService: {
-            url: "",
+            url: "https://api.developer.coinbase.com/rpc/v1/base/",
           },
         };
       }
@@ -94,6 +103,26 @@ export function Upp() {
 
     };
     
+    const handleEraserPixelClick = (x: number, y: number) => {
+     
+      const newEraserTransaction: EraserTransaction = {
+        address: myNFTAddress, // Type assertion
+        abi: myNFTABI, // Ensure this matches your ABI type
+        functionName: "erasePixel",
+        args: [x, y],
+      };
+      setEraserClickedPixels((prev) => {
+        const updatedPixels = prev.filter(pixel => pixel.x !== x || pixel.y !== y);
+        return [...updatedPixels, { x, y}];
+      });
+      setEraserTransactions((prev) => [
+        ...prev.filter(tx => tx.args[0] !== x || tx.args[1] !== y),
+        newEraserTransaction
+      ]);
+      handlePixelClick(x, y); // Adjusted to make (0,0) at top-left
+
+    };
+
     const handleSubmit = () => {
       if (transactions.length === 0) return;
       writeContracts({
@@ -102,6 +131,16 @@ export function Upp() {
       });
       setTransactions([]); // Clear transactions after submission
       setClickedPixels([]); 
+    };
+
+    const handleSubmitEraser = () => {
+      if (erasertransactions.length === 0) return;
+      writeContracts({
+        contracts: erasertransactions,
+        capabilities,
+      });
+      setEraserTransactions([]); // Clear transactions after submission
+      setEraserClickedPixels([]); 
     };
     
     const drawCanvas = (ctx: CanvasRenderingContext2D) => {
@@ -130,8 +169,8 @@ export function Upp() {
         const canvas = canvasRef.current;
         if (canvas) {
           const rect = canvas.getBoundingClientRect();
-          const x = Math.floor((e.clientX - rect.left) / 4); // Adjust for larger pixels
-          const y = Math.floor((e.clientY - rect.top) / 4);
+          const x = Math.floor((e.clientX - rect.left) / 3.75); // Adjust for larger pixels
+          const y = Math.floor((e.clientY - rect.top) / 3.75);
           setHoveredPixel({ x: x + 1, y: y + 1 });
     
           const ctx = canvas.getContext('2d');
@@ -141,7 +180,12 @@ export function Upp() {
         }
       };
       
- 
+      const { data: eraserPixelsResult, isLoading, isError} = useReadContract({
+        abi,
+        address: '0xC0011BB70cC2f19208EF01F88DD16B43250C7f77',
+        functionName: 'eraserPixels',
+        args:[accountAddress],
+      })
 
       const handleClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
         const canvas = canvasRef.current;
@@ -150,7 +194,7 @@ export function Upp() {
           const x = Math.floor((e.clientX - rect.left) / pixelSize);
           const y = Math.floor((e.clientY - rect.top) / pixelSize);
           handlePixelClick(x+1, y+1);
-    
+          handleEraserPixelClick(x+1,x+1);
           const ctx = canvas.getContext('2d');
           if (ctx) {
             drawCanvas(ctx);
@@ -166,12 +210,12 @@ export function Upp() {
             drawCanvas(ctx);
           }
         }
-      }, [clickedPixels, hoveredPixel]);
+      }, [clickedPixels, hoveredPixel, eraserPixels]);
 
 
       return (
-        <div className="flex flex-row" style={{ marginRight:'1vw', marginTop:'0.8vh'}}>
-        <div className="mb-4" style={{color:'#000', marginRight:'6vh'}}>
+        <div className="dynamic" >
+        <div className="bromiso" >
           <HexColorPicker
             color={selectedColor}
             onChange={setSelectedColor}
@@ -186,32 +230,35 @@ export function Upp() {
         <div style={{display:'flex', flexDirection:'column',alignItems:'center'}}>
         <button 
           onClick={handleSubmit} 
-          className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-900 transition w-200"
-          style={{display:'flex', flexDirection:'column',alignItems:'center',height:'fit-content', marginRight:'6vh',width:'fit-content'}}
+          className="bg-cyan-300 text-black px-4 py-2 rounded hover:bg-cyan-900 hover:text-white transition w-200"
+          style={{display:'flex', flexDirection:'column',alignItems:'center',height:'fit-content', marginRight:'9vh', marginLeft:'22vw',width:'fit-content'}}
         >
-        <FaSave/> save onchain
+        <FaSave/> save onchain for free
         </button>
         </div>
+       <div style={{display:'flex',position:'absolute', flexDirection:'row'}}>
        <div style={{display:'flex',position:'absolute', marginLeft:'10vw',marginTop:'29vh', flexDirection:'row'}}>
 
+    </div> 
+    <div style={{ position: "absolute", marginTop: '40vh' }}>
+               
+            </div>
     </div> 
 
         <div style={{display:'flex', flexDirection:'column'}}>
         <canvas
           ref={canvasRef}
-          width={400}
-          height={400}
-          className="border border-gray-400 mb-4 bg-black-200"
+          width={375}
+          height={375}
+          className="border border-gray-400 bg-black-200"
           onMouseMove={handleMouseMove}
           onClick={handleClick}
         />
-         <div>
-          <p style={{maxHeight:'10vh', marginTop:'-1.5vh'}} className="data3">CREATION LAYER</p>
+    
         </div>
-        </div>
-      <div style={{position:"absolute", marginTop:'30vh'}}>
+      <div className="dynamicPend">
       <div className="bg-white p-4 rounded-lg shadow-lg text-gray-800">
-          <h3 className="text-xl font-semibold mb-2">Pending Pixels</h3>
+          <h3 className="text-xl font-semibold mb-2">⬇️Pending Pixels</h3>
           <ul className="list-disc list-inside">
             {clickedPixels.map((pixel, index) => (
               <li key={index}>

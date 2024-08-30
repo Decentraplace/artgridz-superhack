@@ -7,3 +7,64 @@
     font-weight: normal;
     font-style: normal;
   }
+
+  @font-face {
+     font-family: 'onchain'; /* The name you'll use to refer to your font */
+     src: url('./BritneyOnchain-Style02.otf') format('opentype'),
+   }
+   
+.dynamicPage{
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 5vh;
+  margin-top: 2vh;
+}
+
+.base{
+  display: flex;
+}
+
+.connect{
+  position: fixed;
+  top:5%;
+  right:10%
+}
+
+.components{
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  margin-top: 00%;
+ margin-left: 13%;
+}
+
+   @media only screen and (max-width: 768px) {
+  .dynamicPage{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 18vh;
+    margin-top: 38vh;
+    min-height: 10vh;
+  } 
+
+  
+.components{
+  display: flex;
+  margin-top: 58%;
+  margin-left: 0%;
+}
+
+  .base{
+    display: none;
+  }
+
+  .connect{
+    position: absolute;
+    top:2.4%;
+    right:34%
+  }
+  }

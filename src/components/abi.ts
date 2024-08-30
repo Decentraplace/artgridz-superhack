@@ -1,1049 +1,1031 @@
 export const abi = [
 	{
-	  "type": "constructor",
-	  "name": "",
 	  "inputs": [],
-	  "outputs": [],
-	  "stateMutability": "nonpayable"
+	  "stateMutability": "nonpayable",
+	  "type": "constructor"
 	},
 	{
-	  "type": "event",
+	  "anonymous": false,
+	  "inputs": [
+		{
+		  "indexed": true,
+		  "internalType": "address",
+		  "name": "sender",
+		  "type": "address"
+		},
+		{
+		  "indexed": false,
+		  "internalType": "uint256",
+		  "name": "PixelAmount",
+		  "type": "uint256"
+		}
+	  ],
 	  "name": "AmountPixel",
-	  "inputs": [
-		{
-		  "type": "address",
-		  "name": "sender",
-		  "indexed": true,
-		  "internalType": "address"
-		},
-		{
-		  "type": "uint256",
-		  "name": "PixelAmount",
-		  "indexed": false,
-		  "internalType": "uint256"
-		}
-	  ],
-	  "outputs": [],
-	  "anonymous": false
+	  "type": "event"
 	},
 	{
-	  "type": "event",
-	  "name": "CollectionSoldOut",
+	  "anonymous": false,
 	  "inputs": [
 		{
-		  "type": "address",
+		  "indexed": true,
+		  "internalType": "address",
 		  "name": "artist",
-		  "indexed": true,
-		  "internalType": "address"
+		  "type": "address"
 		},
 		{
-		  "type": "uint256",
+		  "indexed": false,
+		  "internalType": "uint256",
 		  "name": "gridID",
-		  "indexed": false,
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "outputs": [],
-	  "anonymous": false
+	  "name": "CollectionSoldOut",
+	  "type": "event"
 	},
 	{
-	  "type": "event",
-	  "name": "CustomAmountPixel",
+	  "anonymous": false,
 	  "inputs": [
 		{
-		  "type": "address",
-		  "name": "sender",
 		  "indexed": true,
-		  "internalType": "address"
+		  "internalType": "address",
+		  "name": "sender",
+		  "type": "address"
 		},
 		{
-		  "type": "uint256",
+		  "indexed": false,
+		  "internalType": "uint256",
 		  "name": "PixelAmount",
-		  "indexed": false,
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "outputs": [],
-	  "anonymous": false
+	  "name": "CustomAmountPixel",
+	  "type": "event"
 	},
 	{
-	  "type": "event",
-	  "name": "CustomPixelChanged",
+	  "anonymous": false,
 	  "inputs": [
 		{
-		  "type": "address",
-		  "name": "sender",
 		  "indexed": true,
-		  "internalType": "address"
+		  "internalType": "address",
+		  "name": "sender",
+		  "type": "address"
 		},
 		{
-		  "type": "uint256",
+		  "indexed": false,
+		  "internalType": "uint256",
 		  "name": "x",
-		  "indexed": false,
-		  "internalType": "uint256"
+		  "type": "uint256"
 		},
 		{
-		  "type": "uint256",
+		  "indexed": false,
+		  "internalType": "uint256",
 		  "name": "y",
-		  "indexed": false,
-		  "internalType": "uint256"
+		  "type": "uint256"
 		},
 		{
-		  "type": "uint256",
+		  "indexed": false,
+		  "internalType": "uint256",
 		  "name": "color",
-		  "indexed": false,
-		  "internalType": "uint256"
+		  "type": "uint256"
 		},
 		{
-		  "type": "uint256",
-		  "name": "id",
 		  "indexed": false,
-		  "internalType": "uint256"
+		  "internalType": "uint256",
+		  "name": "id",
+		  "type": "uint256"
 		}
 	  ],
-	  "outputs": [],
-	  "anonymous": false
+	  "name": "CustomPixelChanged",
+	  "type": "event"
 	},
 	{
-	  "type": "event",
-	  "name": "GridComplete",
+	  "anonymous": false,
 	  "inputs": [
 		{
-		  "type": "address",
-		  "name": "sender",
 		  "indexed": true,
-		  "internalType": "address"
+		  "internalType": "address",
+		  "name": "sender",
+		  "type": "address"
 		},
 		{
-		  "type": "tuple",
-		  "name": "",
 		  "components": [
 			{
-			  "type": "uint256",
+			  "internalType": "uint256",
 			  "name": "id",
-			  "internalType": "uint256"
+			  "type": "uint256"
 			},
 			{
-			  "type": "uint256",
+			  "internalType": "uint256",
 			  "name": "size",
-			  "internalType": "uint256"
+			  "type": "uint256"
 			},
 			{
-			  "type": "address",
+			  "internalType": "address",
 			  "name": "gridOwner",
-			  "internalType": "address"
+			  "type": "address"
 			},
 			{
-			  "type": "bool",
+			  "internalType": "bool",
 			  "name": "completed",
-			  "internalType": "bool"
+			  "type": "bool"
 			},
 			{
-			  "type": "uint256",
+			  "internalType": "uint256",
 			  "name": "supplyGrid",
-			  "internalType": "uint256"
+			  "type": "uint256"
 			},
 			{
-			  "type": "uint256",
+			  "internalType": "uint256",
 			  "name": "royaltyGrid",
-			  "internalType": "uint256"
+			  "type": "uint256"
 			},
 			{
-			  "type": "uint256",
+			  "internalType": "uint256",
 			  "name": "priceGrid",
-			  "internalType": "uint256"
+			  "type": "uint256"
 			}
 		  ],
 		  "indexed": false,
-		  "internalType": "struct ARTGRIDZ.Grid"
+		  "internalType": "struct ARTGRIDZ.Grid",
+		  "name": "",
+		  "type": "tuple"
 		}
 	  ],
-	  "outputs": [],
-	  "anonymous": false
+	  "name": "GridComplete",
+	  "type": "event"
 	},
 	{
-	  "type": "event",
+	  "anonymous": false,
+	  "inputs": [
+		{
+		  "indexed": false,
+		  "internalType": "uint256",
+		  "name": "id",
+		  "type": "uint256"
+		}
+	  ],
 	  "name": "NFTCompleted",
-	  "inputs": [
-		{
-		  "type": "uint256",
-		  "name": "id",
-		  "indexed": false,
-		  "internalType": "uint256"
-		}
-	  ],
-	  "outputs": [],
-	  "anonymous": false
+	  "type": "event"
 	},
 	{
-	  "type": "event",
+	  "anonymous": false,
+	  "inputs": [
+		{
+		  "indexed": true,
+		  "internalType": "address",
+		  "name": "sender",
+		  "type": "address"
+		},
+		{
+		  "indexed": false,
+		  "internalType": "uint256",
+		  "name": "gridID",
+		  "type": "uint256"
+		}
+	  ],
 	  "name": "NFTMinted",
-	  "inputs": [
-		{
-		  "type": "address",
-		  "name": "sender",
-		  "indexed": true,
-		  "internalType": "address"
-		},
-		{
-		  "type": "uint256",
-		  "name": "gridID",
-		  "indexed": false,
-		  "internalType": "uint256"
-		}
-	  ],
-	  "outputs": [],
-	  "anonymous": false
+	  "type": "event"
 	},
 	{
-	  "type": "event",
-	  "name": "NFTSold",
+	  "anonymous": false,
 	  "inputs": [
 		{
-		  "type": "address",
+		  "indexed": true,
+		  "internalType": "address",
 		  "name": "artist",
-		  "indexed": true,
-		  "internalType": "address"
+		  "type": "address"
 		},
 		{
-		  "type": "address",
+		  "indexed": true,
+		  "internalType": "address",
 		  "name": "buyer",
-		  "indexed": true,
-		  "internalType": "address"
+		  "type": "address"
 		},
 		{
-		  "type": "uint256",
-		  "name": "price",
 		  "indexed": false,
-		  "internalType": "uint256"
+		  "internalType": "uint256",
+		  "name": "price",
+		  "type": "uint256"
 		},
 		{
-		  "type": "uint256",
+		  "indexed": false,
+		  "internalType": "uint256",
 		  "name": "gridID",
-		  "indexed": false,
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "outputs": [],
-	  "anonymous": false
+	  "name": "NFTSold",
+	  "type": "event"
 	},
 	{
-	  "type": "event",
+	  "anonymous": false,
+	  "inputs": [
+		{
+		  "indexed": true,
+		  "internalType": "address",
+		  "name": "sender",
+		  "type": "address"
+		},
+		{
+		  "indexed": false,
+		  "internalType": "uint256",
+		  "name": "x",
+		  "type": "uint256"
+		},
+		{
+		  "indexed": false,
+		  "internalType": "uint256",
+		  "name": "y",
+		  "type": "uint256"
+		},
+		{
+		  "indexed": false,
+		  "internalType": "uint256",
+		  "name": "color",
+		  "type": "uint256"
+		},
+		{
+		  "indexed": false,
+		  "internalType": "uint256",
+		  "name": "id",
+		  "type": "uint256"
+		}
+	  ],
 	  "name": "PixelChanged",
-	  "inputs": [
-		{
-		  "type": "address",
-		  "name": "sender",
-		  "indexed": true,
-		  "internalType": "address"
-		},
-		{
-		  "type": "uint256",
-		  "name": "x",
-		  "indexed": false,
-		  "internalType": "uint256"
-		},
-		{
-		  "type": "uint256",
-		  "name": "y",
-		  "indexed": false,
-		  "internalType": "uint256"
-		},
-		{
-		  "type": "uint256",
-		  "name": "color",
-		  "indexed": false,
-		  "internalType": "uint256"
-		},
-		{
-		  "type": "uint256",
-		  "name": "id",
-		  "indexed": false,
-		  "internalType": "uint256"
-		}
-	  ],
-	  "outputs": [],
-	  "anonymous": false
+	  "type": "event"
 	},
 	{
-	  "type": "event",
-	  "name": "Transfer",
+	  "anonymous": false,
 	  "inputs": [
 		{
-		  "type": "address",
+		  "indexed": true,
+		  "internalType": "address",
 		  "name": "from",
-		  "indexed": true,
-		  "internalType": "address"
+		  "type": "address"
 		},
 		{
-		  "type": "address",
+		  "indexed": true,
+		  "internalType": "address",
 		  "name": "to",
-		  "indexed": true,
-		  "internalType": "address"
+		  "type": "address"
 		},
 		{
-		  "type": "uint256",
-		  "name": "amount",
 		  "indexed": false,
-		  "internalType": "uint256"
+		  "internalType": "uint256",
+		  "name": "amount",
+		  "type": "uint256"
 		}
 	  ],
-	  "outputs": [],
-	  "anonymous": false
+	  "name": "Transfer",
+	  "type": "event"
 	},
 	{
-	  "type": "function",
+	  "inputs": [],
 	  "name": "PIXEL_RANGE",
-	  "inputs": [],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [],
 	  "name": "amount",
-	  "inputs": [],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [],
 	  "name": "buyEraser",
-	  "inputs": [],
 	  "outputs": [],
-	  "stateMutability": "payable"
+	  "stateMutability": "payable",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "uint256",
+		  "name": "x",
+		  "type": "uint256"
+		},
+		{
+		  "internalType": "uint256",
+		  "name": "y",
+		  "type": "uint256"
+		},
+		{
+		  "internalType": "uint256",
+		  "name": "color",
+		  "type": "uint256"
+		}
+	  ],
 	  "name": "colorPixel",
-	  "inputs": [
-		{
-		  "type": "uint256",
-		  "name": "x",
-		  "internalType": "uint256"
-		},
-		{
-		  "type": "uint256",
-		  "name": "y",
-		  "internalType": "uint256"
-		},
-		{
-		  "type": "uint256",
-		  "name": "color",
-		  "internalType": "uint256"
-		}
-	  ],
 	  "outputs": [],
-	  "stateMutability": "nonpayable"
+	  "stateMutability": "nonpayable",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "uint256",
+		  "name": "",
+		  "type": "uint256"
+		}
+	  ],
 	  "name": "colored",
-	  "inputs": [
-		{
-		  "type": "uint256",
-		  "name": "",
-		  "internalType": "uint256"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [],
 	  "name": "coloredId",
-	  "inputs": [],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
-	  "name": "completeArtwork",
 	  "inputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "price",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		},
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "supply",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
+	  "name": "completeArtwork",
 	  "outputs": [],
-	  "stateMutability": "nonpayable"
+	  "stateMutability": "nonpayable",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "uint256",
+		  "name": "",
+		  "type": "uint256"
+		}
+	  ],
 	  "name": "completedArtworks",
-	  "inputs": [
-		{
-		  "type": "uint256",
-		  "name": "",
-		  "internalType": "uint256"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "address",
+		  "name": "",
+		  "type": "address"
+		}
+	  ],
 	  "name": "currentGrid",
-	  "inputs": [
-		{
-		  "type": "address",
-		  "name": "",
-		  "internalType": "address"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "address",
+		  "name": "",
+		  "type": "address"
+		}
+	  ],
 	  "name": "currentGridSize",
-	  "inputs": [
-		{
-		  "type": "address",
-		  "name": "",
-		  "internalType": "address"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "uint256",
+		  "name": "",
+		  "type": "uint256"
+		}
+	  ],
 	  "name": "customGridzAquired",
-	  "inputs": [
-		{
-		  "type": "uint256",
-		  "name": "",
-		  "internalType": "uint256"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
-	  "name": "customPixel",
 	  "inputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "x",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		},
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "y",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		},
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "color",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
+	  "name": "customPixel",
 	  "outputs": [],
-	  "stateMutability": "nonpayable"
+	  "stateMutability": "nonpayable",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
-	  "name": "decreaseSupply",
 	  "inputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "gridId",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		},
 		{
-		  "type": "address",
+		  "internalType": "address",
 		  "name": "sender",
-		  "internalType": "address"
+		  "type": "address"
 		}
 	  ],
+	  "name": "decreaseSupply",
 	  "outputs": [],
-	  "stateMutability": "payable"
+	  "stateMutability": "payable",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
-	  "name": "erasePixel",
 	  "inputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "x",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		},
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "y",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
+	  "name": "erasePixel",
 	  "outputs": [],
-	  "stateMutability": "nonpayable"
+	  "stateMutability": "nonpayable",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "address",
+		  "name": "",
+		  "type": "address"
+		}
+	  ],
 	  "name": "eraserPixels",
-	  "inputs": [
-		{
-		  "type": "address",
-		  "name": "",
-		  "internalType": "address"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [],
 	  "name": "getArrayLength",
-	  "inputs": [],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "uint256",
+		  "name": "",
+		  "type": "uint256"
+		}
+	  ],
 	  "name": "gridCompleted",
-	  "inputs": [
-		{
-		  "type": "uint256",
-		  "name": "",
-		  "internalType": "uint256"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "bool",
+		  "internalType": "bool",
 		  "name": "",
-		  "internalType": "bool"
+		  "type": "bool"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "uint256",
+		  "name": "",
+		  "type": "uint256"
+		}
+	  ],
 	  "name": "gridNFTPrice",
-	  "inputs": [
-		{
-		  "type": "uint256",
-		  "name": "",
-		  "internalType": "uint256"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "uint256",
+		  "name": "",
+		  "type": "uint256"
+		}
+	  ],
 	  "name": "gridNFTRoyalty",
-	  "inputs": [
-		{
-		  "type": "uint256",
-		  "name": "",
-		  "internalType": "uint256"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "uint256",
+		  "name": "",
+		  "type": "uint256"
+		}
+	  ],
 	  "name": "gridNFTSupply",
-	  "inputs": [
-		{
-		  "type": "uint256",
-		  "name": "",
-		  "internalType": "uint256"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "uint256",
+		  "name": "",
+		  "type": "uint256"
+		}
+	  ],
 	  "name": "gridOwner",
-	  "inputs": [
-		{
-		  "type": "uint256",
-		  "name": "",
-		  "internalType": "uint256"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "address",
+		  "internalType": "address",
 		  "name": "",
-		  "internalType": "address"
+		  "type": "address"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "uint256",
+		  "name": "",
+		  "type": "uint256"
+		}
+	  ],
 	  "name": "gridSizes",
-	  "inputs": [
-		{
-		  "type": "uint256",
-		  "name": "",
-		  "internalType": "uint256"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "uint256",
+		  "name": "",
+		  "type": "uint256"
+		}
+	  ],
 	  "name": "grids",
-	  "inputs": [
-		{
-		  "type": "uint256",
-		  "name": "",
-		  "internalType": "uint256"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "id",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		},
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "size",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		},
 		{
-		  "type": "address",
+		  "internalType": "address",
 		  "name": "gridOwner",
-		  "internalType": "address"
+		  "type": "address"
 		},
 		{
-		  "type": "bool",
+		  "internalType": "bool",
 		  "name": "completed",
-		  "internalType": "bool"
+		  "type": "bool"
 		},
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "supplyGrid",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		},
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "royaltyGrid",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		},
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "priceGrid",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "address",
+		  "name": "",
+		  "type": "address"
+		}
+	  ],
 	  "name": "holdsGrid",
-	  "inputs": [
-		{
-		  "type": "address",
-		  "name": "",
-		  "internalType": "address"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "bool",
+		  "internalType": "bool",
 		  "name": "",
-		  "internalType": "bool"
+		  "type": "bool"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "uint256",
+		  "name": "",
+		  "type": "uint256"
+		}
+	  ],
 	  "name": "isGridNFT",
-	  "inputs": [
-		{
-		  "type": "uint256",
-		  "name": "",
-		  "internalType": "uint256"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "bool",
+		  "internalType": "bool",
 		  "name": "",
-		  "internalType": "bool"
+		  "type": "bool"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [],
 	  "name": "maxPixels",
-	  "inputs": [],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [],
 	  "name": "nextGridId",
-	  "inputs": [],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [],
 	  "name": "nextId",
-	  "inputs": [],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [],
 	  "name": "owner",
-	  "inputs": [],
 	  "outputs": [
 		{
-		  "type": "address",
+		  "internalType": "address",
 		  "name": "",
-		  "internalType": "address"
+		  "type": "address"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "address",
+		  "name": "",
+		  "type": "address"
+		}
+	  ],
 	  "name": "ownsKey",
-	  "inputs": [
-		{
-		  "type": "address",
-		  "name": "",
-		  "internalType": "address"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "bool",
+		  "internalType": "bool",
 		  "name": "",
-		  "internalType": "bool"
+		  "type": "bool"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [],
 	  "name": "pixelAmount",
-	  "inputs": [],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "uint256",
+		  "name": "",
+		  "type": "uint256"
+		},
+		{
+		  "internalType": "uint256",
+		  "name": "",
+		  "type": "uint256"
+		},
+		{
+		  "internalType": "uint256",
+		  "name": "",
+		  "type": "uint256"
+		}
+	  ],
 	  "name": "pixelChanged",
-	  "inputs": [
-		{
-		  "type": "uint256",
-		  "name": "",
-		  "internalType": "uint256"
-		},
-		{
-		  "type": "uint256",
-		  "name": "",
-		  "internalType": "uint256"
-		},
-		{
-		  "type": "uint256",
-		  "name": "",
-		  "internalType": "uint256"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "address",
+		  "internalType": "address",
 		  "name": "",
-		  "internalType": "address"
+		  "type": "address"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [],
 	  "name": "timeFee",
-	  "inputs": [],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [],
 	  "name": "topOnchainArtUser",
-	  "inputs": [],
 	  "outputs": [
 		{
-		  "type": "address",
+		  "internalType": "address",
 		  "name": "",
-		  "internalType": "address"
+		  "type": "address"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "address",
+		  "name": "",
+		  "type": "address"
+		}
+	  ],
 	  "name": "totalCompletedGridz",
-	  "inputs": [
-		{
-		  "type": "address",
-		  "name": "",
-		  "internalType": "address"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "address",
+		  "name": "",
+		  "type": "address"
+		}
+	  ],
 	  "name": "totalCustomGridz",
-	  "inputs": [
-		{
-		  "type": "address",
-		  "name": "",
-		  "internalType": "address"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "address",
+		  "name": "",
+		  "type": "address"
+		}
+	  ],
 	  "name": "totalCustomPixels",
-	  "inputs": [
-		{
-		  "type": "address",
-		  "name": "",
-		  "internalType": "address"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
+	  "inputs": [
+		{
+		  "internalType": "address",
+		  "name": "",
+		  "type": "address"
+		}
+	  ],
 	  "name": "totalPixels",
-	  "inputs": [
-		{
-		  "type": "address",
-		  "name": "",
-		  "internalType": "address"
-		}
-	  ],
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
-	  "name": "unlockGrid",
 	  "inputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "size",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
+	  "name": "unlockGrid",
 	  "outputs": [],
-	  "stateMutability": "nonpayable"
+	  "stateMutability": "nonpayable",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
-	  "name": "withdraw",
 	  "inputs": [],
+	  "name": "withdraw",
 	  "outputs": [],
-	  "stateMutability": "nonpayable"
+	  "stateMutability": "nonpayable",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
-	  "name": "withdrawAmount",
 	  "inputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "_amount",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
+	  "name": "withdrawAmount",
 	  "outputs": [],
-	  "stateMutability": "nonpayable"
+	  "stateMutability": "nonpayable",
+	  "type": "function"
 	},
 	{
-	  "type": "function",
-	  "name": "xp",
 	  "inputs": [
 		{
-		  "type": "address",
+		  "internalType": "address",
 		  "name": "",
-		  "internalType": "address"
+		  "type": "address"
 		}
 	  ],
+	  "name": "xp",
 	  "outputs": [
 		{
-		  "type": "uint256",
+		  "internalType": "uint256",
 		  "name": "",
-		  "internalType": "uint256"
+		  "type": "uint256"
 		}
 	  ],
-	  "stateMutability": "view"
+	  "stateMutability": "view",
+	  "type": "function"
 	},
 	{
-	  "type": "receive",
-	  "name": "",
-	  "inputs": [],
-	  "outputs": [],
-	  "stateMutability": "payable"
+	  "stateMutability": "payable",
+	  "type": "receive"
 	},
 	{
-	  "type": "fallback",
-	  "name": "",
-	  "inputs": [],
-	  "outputs": [],
-	  "stateMutability": "payable"
+	  "stateMutability": "payable",
+	  "type": "fallback"
 	}
   ] as const

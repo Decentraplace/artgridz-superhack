@@ -87,7 +87,7 @@ export default function ViewPixel() {
 
   const renderCanvas = () => {
     const canvas = [];
-    const adjustedPixelSize = Math.min(160, 160 / 40);
+    const adjustedPixelSize = Math.min(150, 150 / 40);
 
     for (let y = 1; y <= WINDOW_SIZE; y++) {
       const row = [];
@@ -126,7 +126,7 @@ export default function ViewPixel() {
 
 
   return (
-    <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'flex-start', marginTop:'8.7vh', marginRight:'2vh'}} className="canvas-container">
+    <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'flex-start'}} className="canvas-container">
 
 
       <div className="pixel-canvas" key={reloadKey}>

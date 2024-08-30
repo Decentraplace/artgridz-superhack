@@ -3,6 +3,7 @@ import { base} from '@wagmi/core/chains'
 
 export const config = createConfig({
   chains: [base],
+  
   transports: {
     [base.id]: http(),
   },

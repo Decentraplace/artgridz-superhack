@@ -4,7 +4,7 @@ import './Canvas.css'; // Import your CSS stylesheet
 import { motion } from "framer-motion";
 import { myNFTABI } from '@/myNFT';
 
-const CONTRACT_ADDRESS = "0xC0011BB70cC2f19208EF01F88DD16B43250C7f77"; // Replace with your contract address
+const CONTRACT_ADDRESS = "0xa5E06C0AfD942DA2957b0cadD8e176d966e2A8e2"; // Replace with your contract address
 
 export default function ViewPixels() {
   const { contract } = useContract(CONTRACT_ADDRESS, myNFTABI);
@@ -16,8 +16,8 @@ export default function ViewPixels() {
   const [selectedColor, setSelectedColor] = useState("#FFFFFF");
   const { data: grid, isLoading: gridLoad } = useContractRead(contract, "nextId");
   const { data: burned, isLoading: burnedLoad } = useContractRead(contract, "coloredId");
-  const WINDOW_SIZE = 100;
-  const MAP_SIZE = 100;
+  const WINDOW_SIZE = 3;
+  const MAP_SIZE = 3;
   const [reloadKey, setReloadKey] = useState(0);
   const [fee, setFee] = useState(0);
   const [pixelColors, setPixelColors] = useState(Array(WINDOW_SIZE * WINDOW_SIZE).fill(0));
@@ -25,7 +25,7 @@ export default function ViewPixels() {
   const [canvasSize, setCanvasSize] = useState(2);
 
   // Use the ThirdWeb useContractEvents hook to listen for "PixelChanged" events
-  const { data: pixelChangedEvents = [], error: pixelChangedEventsError } = useContractEvents(contract, "PixelChanged", {
+  const { data: pixelChangedEvents = [], error: pixelChangedEventsError } = useContractEvents(contract, "ColorMine", {
     queryFilter: {
       fromBlock: 3912450, // Events starting from this block
       toBlock: 'latest', // Events up to this block
@@ -87,7 +87,7 @@ export default function ViewPixels() {
 
   const renderCanvas = () => {
     const canvas = [];
-    const adjustedPixelSize = Math.min(200, 200 / 40);
+    const adjustedPixelSize = Math.min(2000, 2000 / 40);
 
     for (let y = 1; y <= WINDOW_SIZE; y++) {
       const row = [];

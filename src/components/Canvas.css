@@ -44,7 +44,18 @@
     width: fit-content;
   }
   
-  
+  .dynamic{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .dynamicPend{
+    position:fixed;
+    top: 50%;
+    right: 23%;
+    align-self: center;
+    
+  }
   /* PixelLucky Component Styles */
   .pixelLucky {
     transition: all 0.3s ease; /* Smooth transition for size and color changes */
@@ -280,9 +291,12 @@
   
   
   .pixel-canvas {
-    align-items: center;
+    display: flex;
+    justify-content: flex-start;
     font-family: Arial, sans-serif; /* Use a standard font */
-    max-width: 150vh; /* Limit canvas width for better readability */
+    border-width: 1px;
+    border-color: #000;
+    min-width: fit-content; /* Limit canvas width for better readability */
   }
   
   
@@ -492,6 +506,11 @@
     z-index: -1;
   }
   
+  .bromiso {
+    position: absolute;
+    left: 17%;
+  }
+
   .element:hover {
     background-color: #67e4a4;
     transition: background-color 0.3s;
@@ -499,10 +518,19 @@
   
   
   @media only screen and (max-width: 768px) {
+
+    .dynamic{
+      display: flex;
+    flex-direction: column;
+    }
+    .dynamicPend{
+      position: absolute;
+      top: 105%;
+      right: 20%;
+    }
     .canvas-container {
       flex-direction: column;
       align-items: center;
-      margin-left: 0.01vw;
     }
   
   .map-gta{
@@ -594,6 +622,12 @@
       height: fit-content;
     }
   
+    .bromiso {
+      position: absolute;
+      left: 23%;
+      bottom:100%
+    }
+
     .data3 {
       font-size: 1.2vh;
     }

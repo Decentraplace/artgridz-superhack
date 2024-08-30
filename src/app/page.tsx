@@ -1,52 +1,53 @@
 'use client';
 import { Base } from '@thirdweb-dev/chains';
-import { ThirdwebProvider } from '@thirdweb-dev/react';
+import {
+  ThirdwebProvider,
+  metamaskWallet,
+  coinbaseWallet,
+  walletConnect,
+} from "@thirdweb-dev/react";
 import OnchainProviders from '@/components/OnchainProviders';
-import ViewPixels from '@/components/ViewPixels';
 import ViewPixel from '@/components/ViewPixel';
 import { Upp } from '@/components/Upp';
 import WalletComponents from '@/components/WalletComponents';
 import logow from './logow.png';
+import base from './base.png';
+import sweep from './sweep.png';
 import './css.css';
 
 export default function Page() {
   return (
-    <div>
-         <div style={{display:"flex", flexDirection:"row", marginBottom:'5.5vh', alignItems:'flex-end'}}>
-         <img src={logow.src} alt="Description of the image" width={"100vw"} />
-        <h2 style={{fontFamily:'Pixel', fontSize:'4vh', marginBottom:'1.2vh', marginLeft:'0.2vw'}}>rtGridz</h2>
-       </div>
-    <div className="flex flex-row" style={{backgroundColor: "#67e4a4", marginTop:'-4vh'}}>
-      <ThirdwebProvider activeChain={Base} clientId="">
-    <section className="flex flex-col w-full  mb-8 border-b border-indigo-600 pb-4">
-      <div className="flex items-center mb-4">
+    <div style={{marginLeft:'2vw', color: '#FFF', height:'fit-content'}}>
+      <div className='dynamicPage'>
+        <img src={sweep.src} alt="Description of the image" style={{ width: '80%', maxWidth: '500px' }} />
+        <h2 style={{ fontFamily: 'onchain', fontSize: '1.2vh', color: '#FFF'}}>coLOR PiXELs To EaRN</h2>
+        <img src={base.src} alt="Description of the image" className='base' style={{padding: '5%', width: '80%', maxWidth: '150px' }} />
       </div>
-    </section>
+      <ThirdwebProvider activeChain={Base} clientId="" supportedWallets={[
+        coinbaseWallet(),
+        metamaskWallet(),
+        walletConnect()
+      ]}>
   
-    <OnchainProviders>
-    <section className="flex flex-col w-full mb-8 border-b border-indigo-600 pb-4">
-      <div className="bg-white p-4 rounded-lg shadow-lg text-gray-800" style={{marginTop:'1vh',marginBottom:'1vh', maxWidth:'23vw'}}>
-        <WalletComponents />
-      </div>
-      <div style={{zIndex:'3'}}>
-        <Upp/>
-      </div>
-      <div style={{position:"absolute", pointerEvents:'none', opacity:'0.5', top:'14.1vh', left:'37.36vw', zIndex:'1'}}>
-          <ViewPixel />
-        </div>
-    </section>
-    </OnchainProviders>
-  
+  <OnchainProviders>
+          <div className='components'>
+            <div className='connect'>
+              <WalletComponents />
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+              <div style={{ position: 'relative', width: '100%', maxWidth: '600px' }}>
+                <ViewPixel />
+                <div style={{ position: 'absolute', bottom: '0%', right: '0%' }}>
+                  <Upp />
+                </div>
+              </div>
+            </div>
+          </div>
+        </OnchainProviders>
+      </ThirdwebProvider>
+
     
-      <section className="flex flex-col w-full mb-8 border-b border-indigo-600 pb-4">
-        <div className="flex flex-col mb-4">
-          <ViewPixels />
-        </div>
-        <main className="flex flex-col space-y-6">
-        </main>
-      </section>
-    </ThirdwebProvider>
-  </div>
-  </div>
+    </div>
   );
 }
+

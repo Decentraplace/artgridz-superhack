@@ -96,7 +96,7 @@ export async function willSponsor({
       abi: myNFTABI,
       data: calls[callToCheckIndex].data,
     });
-    if (innerCalldata.functionName !== "colorPixel" && innerCalldata.functionName !== "buyEraser")  return false;
+    if (innerCalldata.functionName !== "colorPixel" && innerCalldata.functionName !== "erasePixel")  return false;
   
     return true;
   } catch (e) {
