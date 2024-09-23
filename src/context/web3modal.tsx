@@ -10,7 +10,7 @@ const base = {
   name: 'Base',
   currency: 'ETH',
   explorerUrl: 'https://basescan.org/',
-  rpcUrl: 'https://api.developer.coinbase.com/rpc/v1/base/T69Vc4hfmfkIwnJQPALhD0E3WXUEqD-b'
+  rpcUrl: 'https://api.developer.coinbase.com/rpc/v1/base/'
 }
 
 // 3. Create a metadata object
