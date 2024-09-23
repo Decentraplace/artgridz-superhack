@@ -30,7 +30,7 @@ const ethersConfig = defaultConfig({
   enableEIP6963: true, // true by default
   enableInjected: true, // true by default
   enableCoinbase: true, // true by default
-  rpcUrl: 'https://api.developer.coinbase.com/rpc/v1/base/T69Vc4hfmfkIwnJQPALhD0E3WXUEqD-b', // used for the Coinbase SDK
+  rpcUrl: 'https://api.developer.coinbase.com/rpc/v1/base/', // used for the Coinbase SDK
   defaultChainId: 8453 // used for the Coinbase SDK
 })
 
